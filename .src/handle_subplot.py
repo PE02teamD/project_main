@@ -28,10 +28,10 @@ def handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6, ax7):
          'ax6_ticksize': 14,
          'ax6_legendloc': 'lower center', 'ax6_legendncol': 1, 'ax6_legendsize': 8},
 
-        {'ax7_title': 'Flat Flat TS', 'ax7_titlesize': 11,
+        {'ax7_title': 'Flat Flat TS Enlarged', 'ax7_titlesize': 11,
          'ax7_xlabel': 'Wavelength [nm]', 'ax7_ylabel': 'Intensity [a.u.]', 'ax7_size': 9,
          'ax7_ticksize': 14,
-         'ax7_legendloc': 'lower center', 'ax7_legendncol': 3, 'ax7_legendsize': 6},
+         'ax7_legendloc': 'lower center', 'ax7_legendncol': 3, 'ax7_legendsize': 4},
     ]
 
     for i, axs in enumerate([ax1, ax2, ax3, ax4, ax5, ax6, ax7]):
