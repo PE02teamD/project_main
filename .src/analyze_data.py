@@ -6,6 +6,8 @@ from handle_subplot import handle_subplot
 from ts_graph import ts_graph, ts_fitting_graph, flat_ts_graph
 from save_csv import save_csv
 from ts_fitting import flat_peak_fitting
+from ts_fitting import flat_peak_fitting_LMZC_LMZO
+
 import os
 from datetime import datetime
 
@@ -57,6 +59,17 @@ def function5(xml, formatted_datetime):
 def function6(ax5, ax6, xml):
     flat_peak_fitting(ax5, ax6, xml)
 
+def function7(ax7, xml):
+    flat_peak_fitting_LMZC_LMZO(ax7, xml)
+    if xml is not None:
+        if "LMZC" in xml:
+            ax7.set_xlim(1547, 1553)
+        else:
+            ax7.set_xlim(1307, 1313)
+
+
+
+
 
 def create_res_subfolders():
     # 분석 시간 폴더 생성
@@ -75,7 +88,7 @@ def analyze_data(self, option_list):
     formatted_datetime = create_res_subfolders()
     for i, xml in enumerate(self.xml_files):
         self.update()
-        ax1, ax2, ax3, ax4, ax5, ax6 = select_analyze_data()
+        ax1, ax2, ax3, ax4, ax5, ax6, ax7 = select_analyze_data()
         # data 분석
         if 'csv' in option_list:
             function5(xml, formatted_datetime)
@@ -86,7 +99,8 @@ def analyze_data(self, option_list):
             function3(ax3, xml)
             function4(ax4, xml)
             function6(ax5, ax6, xml)
-            handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6)
+            function7(ax7, xml)
+            handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6, ax7)
             save_png_iv(xml, formatted_datetime)
 
         plt.close('all')

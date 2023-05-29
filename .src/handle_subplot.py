@@ -1,4 +1,4 @@
-def handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6):
+def handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6, ax7):
     # Setting details
     detail_list = [
         {'ax1_title': 'IV - analysis', 'ax1_titlesize': 11,
@@ -26,12 +26,18 @@ def handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6):
         {'ax6_title': 'n_V_curve', 'ax6_titlesize': 11,
          'ax6_xlabel': 'Voltage [V]', 'ax6_ylabel': 'del_n_eff', 'ax6_size': 9,
          'ax6_ticksize': 14,
-         'ax6_legendloc': 'lower center', 'ax6_legendncol': 1, 'ax6_legendsize': 8}
+         'ax6_legendloc': 'lower center', 'ax6_legendncol': 1, 'ax6_legendsize': 8},
+
+        {'ax7_title': 'Flat Flat TS', 'ax7_titlesize': 11,
+         'ax7_xlabel': 'Wavelength [nm]', 'ax7_ylabel': 'Intensity [a.u.]', 'ax7_size': 9,
+         'ax7_ticksize': 14,
+         'ax7_legendloc': 'lower center', 'ax7_legendncol': 3, 'ax7_legendsize': 6},
     ]
 
-    for i, axs in enumerate([ax1, ax2, ax3, ax4, ax5, ax6]):
+    for i, axs in enumerate([ax1, ax2, ax3, ax4, ax5, ax6, ax7]):
         if axs is not None:
             details = detail_list[i]
+
             axs.set_xlabel(details[f'ax{i + 1}_xlabel'], size=details[f'ax{i + 1}_size'], fontweight='bold')
             axs.set_ylabel(details[f'ax{i + 1}_ylabel'], size=details[f'ax{i + 1}_size'], fontweight='bold')
             axs.set_title(details[f'ax{i + 1}_title'], size=details[f'ax{i + 1}_titlesize'], fontweight='bold',
@@ -40,3 +46,4 @@ def handle_subplot(ax1, ax2, ax3, ax4, ax5, ax6):
             axs.legend(loc=details[f'ax{i + 1}_legendloc'], ncol=details[f'ax{i + 1}_legendncol'],
                        fontsize=details[f'ax{i + 1}_legendsize'])
             axs.grid()
+
